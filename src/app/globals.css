@@ -1,1 +1,35 @@
 @import "tailwindcss";
+
+@keyframes graffiti-pulse {
+  0%, 100% { text-shadow: 4px 4px 0 #ff0055, -2px -2px 0 #00e5ff; }
+  50% { text-shadow: 4px 4px 0 #ff0055, -2px -2px 0 #00e5ff, 0 0 30px #ff005588; }
+}
+
+@keyframes fall {
+  0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0.3; }
+}
+
+@keyframes sway {
+  0%, 100% { margin-left: 0; }
+  50% { margin-left: 20px; }
+}
+
+.graffiti-title {
+  font-family: 'Arial Black', 'Impact', sans-serif;
+  font-style: italic;
+  transform: skewX(-6deg);
+  animation: graffiti-pulse 0.3s infinite;
+  letter-spacing: 2px;
+}
+
+.bill {
+  position: fixed;
+  top: -80px;
+  font-size: 28px;
+  opacity: 0;
+  animation: fall linear infinite, sway 2s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
