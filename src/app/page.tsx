@@ -60,7 +60,7 @@ export default function Home() {
         <div className="bg-neutral-900/90 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border-2 border-neutral-700 relative">
           {}
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-yellow-500 to-yellow-300 text-black font-black px-6 py-1 rounded-full text-sm uppercase tracking-widest rotate-[-2deg] shadow-lg">
-            Graffiti Style
+            Due the 1st of every month
           </div>
 
           <h2 className="text-2xl font-bold text-white text-center mb-1 mt-2">
