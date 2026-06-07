@@ -1,11 +1,20 @@
 import { NextResponse } from "next/server";
-import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2026-05-27.dahlia",
-});
+const stripeKey = process.env.STRIPE_SECRET_KEY;
 
 export async function POST(request: Request) {
+  if (!stripeKey) {
+    return NextResponse.json(
+      { error: "Stripe not configured" },
+      { status: 500 }
+    );
+  }
+
+  const Stripe = (await import("stripe")).default;
+  const stripe = new Stripe(stripeKey, {
+    apiVersion: "2026-05-27.dahlia",
+  });
+
   try {
     const { amount } = await request.json();
     const unitAmount = Math.round(parseFloat(amount || "1500") * 100);
