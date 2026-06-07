@@ -1,81 +1,8 @@
 "use client";
 
-import { useId, useState } from "react";
-
-const BILLS = [
-  { emoji: "💵", left: "5%", size: 28, duration: 4, delay: 0 },
-  { emoji: "💸", left: "15%", size: 32, duration: 5.5, delay: 1 },
-  { emoji: "💵", left: "28%", size: 24, duration: 4.8, delay: 2.3 },
-  { emoji: "🪙", left: "42%", size: 26, duration: 6, delay: 0.5 },
-  { emoji: "💵", left: "55%", size: 30, duration: 5, delay: 3.1 },
-  { emoji: "💸", left: "68%", size: 28, duration: 4.2, delay: 1.7 },
-  { emoji: "💵", left: "78%", size: 32, duration: 5.8, delay: 2.8 },
-  { emoji: "🪙", left: "90%", size: 24, duration: 4.5, delay: 0.9 },
-  { emoji: "💵", left: "10%", size: 26, duration: 6.2, delay: 3.5 },
-  { emoji: "💸", left: "35%", size: 30, duration: 4.7, delay: 1.2 },
-  { emoji: "💵", left: "60%", size: 28, duration: 5.3, delay: 2 },
-  { emoji: "🪙", left: "85%", size: 26, duration: 4.9, delay: 3.8 },
-];
+import { useState } from "react";
 
 export default function Home() {
-  const uid = useId();
-
-  return (
-    <main className="min-h-screen bg-neutral-950 flex items-center justify-center relative overflow-hidden">
-      {BILLS.map((bill) => (
-        <div
-          key={`${uid}-${bill.emoji}-${bill.left}`}
-          className="bill"
-          style={{
-            left: bill.left,
-            fontSize: bill.size,
-            animationDuration: `${bill.duration}s, 2s`,
-            animationDelay: `${bill.delay}s, ${bill.delay * 0.3}s`,
-          }}
-        >
-          {bill.emoji}
-        </div>
-      ))}
-
-      <div className="w-full max-w-md px-4 relative z-10">
-        <h1
-          className="graffiti-title text-6xl md:text-7xl font-black text-center mb-8 leading-tight"
-          style={{
-            fontFamily: "'Arial Black', 'Impact', sans-serif",
-            color: "#ff0055",
-          }}
-        >
-          RENT PAYMENTS
-        </h1>
-
-        <div className="bg-neutral-900/90 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border-2 border-neutral-700">
-          <h2 className="text-2xl font-bold text-white text-center mb-1 mt-2">
-            Pay Your Rent
-          </h2>
-          <p className="text-neutral-400 text-center text-sm mb-6">
-            Monthly rent payment — secure checkout via Stripe
-          </p>
-
-          <div className="flex justify-between items-center py-4 border-b-2 border-dashed border-neutral-600">
-            <span className="text-neutral-300 font-medium">Monthly Rent</span>
-            <span className="text-3xl font-black text-yellow-400">
-              $1,500.00
-            </span>
-          </div>
-
-          <ClientPayButton />
-
-          <p className="text-center text-neutral-500 text-xs mt-4">
-            🔒 Secured by Stripe
-          </p>
-        </div>
-      </div>
-    </main>
-  );
-}
-
-function ClientPayButton() {
-  "use client";
   const [loading, setLoading] = useState(false);
 
   const handleCheckout = async () => {
@@ -93,12 +20,60 @@ function ClientPayButton() {
   };
 
   return (
-    <button
-      onClick={handleCheckout}
-      disabled={loading}
-      className="w-full mt-6 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 disabled:from-neutral-600 disabled:to-neutral-700 text-black font-black py-4 rounded-xl text-lg uppercase tracking-widest transition-all transform hover:scale-[1.02] active:scale-95 shadow-lg hover:shadow-yellow-500/30"
-    >
-      {loading ? "Loading..." : "💵 Pay Rent"}
-    </button>
+    <main className="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 flex items-center justify-center relative overflow-hidden">
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500 rounded-full mix-blur-5xl animate-pulse" style={{ animationDuration: "8s" }} />
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500 rounded-full mix-blur-5xl animate-pulse" style={{ animationDuration: "10s" }} />
+      </div>
+
+      <div className="relative z-10 w-full max-w-md px-4">
+        <div className="text-center mb-8">
+          <h1 className="text-5xl md:text-6xl font-black text-white mb-3 tracking-tight">
+            Rent Payments
+          </h1>
+          <p className="text-purple-300 text-lg font-medium">Secure monthly payment portal</p>
+        </div>
+
+        <div className="glass-morphism rounded-3xl p-8 shadow-2xl transition-all duration-500 hover:shadow-purple-500/20">
+          <div className="flex items-center justify-center mb-6">
+            <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-violet-500 rounded-2xl flex items-center justify-center mr-3 pulse-dot">
+              <span className="text-2xl">🏠</span>
+            </div>
+            <h2 className="text-2xl font-bold text-white">Monthly Rent</h2>
+          </div>
+
+          <div className="bg-white/5 rounded-2xl p-6 mb-6 border border-white/10">
+            <div className="flex justify-between items-center">
+              <span className="text-slate-300 font-medium text-lg">Amount Due</span>
+              <span className="text-4xl font-black bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent">
+                $1,500.00
+              </span>
+            </div>
+          </div>
+
+          <button
+            onClick={handleCheckout}
+            disabled={loading}
+            className="w-full relative overflow-hidden bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 hover:from-purple-500 hover:via-violet-500 hover:to-indigo-500 disabled:from-slate-700 disabled:to-slate-800 text-white font-bold py-5 rounded-2xl text-lg uppercase tracking-wider transition-all duration-300 transform hover:scale-[1.02] active:scale-95 shadow-xl hover:shadow-purple-500/30 group"
+          >
+            <span className="relative z-10 flex items-center justify-center">
+              {loading ? "Processing..." : "Complete Payment"}
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          </button>
+
+          <div className="flex items-center justify-center mt-6 text-slate-400">
+            <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-8 0V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H10z" />
+            </svg>
+            <span className="text-sm font-medium">Secured by Stripe</span>
+          </div>
+        </div>
+
+        <div className="text-center mt-8 text-slate-500 text-xs">
+          Payments processed securely. Questions? Contact support
+        </div>
+      </div>
+    </main>
   );
 }
