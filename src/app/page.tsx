@@ -22,7 +22,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-neutral-950 flex items-center justify-center relative overflow-hidden">
-      {}
       {BILLS.map((bill) => (
         <div
           key={`${uid}-${bill.emoji}-${bill.left}`}
@@ -38,11 +37,9 @@ export default function Home() {
         </div>
       ))}
 
-      {}
       <div className="w-full max-w-md px-4 relative z-10">
-        {}
         <h1
-          className="graffiti-title text-6xl md:text-7xl font-black text-center mb-2 leading-tight"
+          className="graffiti-title text-6xl md:text-7xl font-black text-center mb-8 leading-tight"
           style={{
             fontFamily: "'Arial Black', 'Impact', sans-serif",
             color: "#ff0055",
@@ -51,18 +48,7 @@ export default function Home() {
           RENT PAYMENTS
         </h1>
 
-        {}
-        <p className="text-center text-neutral-400 italic mb-8 text-lg tracking-wide">
-          by Leon-LinkedIn
-        </p>
-
-        {}
-        <div className="bg-neutral-900/90 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border-2 border-neutral-700 relative">
-          {}
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-yellow-500 to-yellow-300 text-black font-black px-6 py-1 rounded-full text-sm uppercase tracking-widest rotate-[-2deg] shadow-lg">
-            Due the 1st of every month
-          </div>
-
+        <div className="bg-neutral-900/90 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border-2 border-neutral-700">
           <h2 className="text-2xl font-bold text-white text-center mb-1 mt-2">
             Pay Your Rent
           </h2>

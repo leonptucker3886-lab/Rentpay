@@ -86,4 +86,4 @@ export async function GET() {
 |------|---------|
 | Initial | Template created with base setup |
 | 2026-06-07 | Added Stripe checkout integration: API route, payment page, success/cancel pages, .env.example |
-| 2026-06-07 | Changed "Graffiti Style" badge to "Due the 1st of every month" on payment page |
+| 2026-06-07 | Removed "Due the 1st of every month" badge and "by Leon-LinkedIn" text from payment page |
