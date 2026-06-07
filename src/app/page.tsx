@@ -20,10 +20,10 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 flex items-center justify-center relative overflow-hidden">
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500 rounded-full mix-blur-5xl animate-pulse" style={{ animationDuration: "8s" }} />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500 rounded-full mix-blur-5xl animate-pulse" style={{ animationDuration: "10s" }} />
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-zinc-900 flex items-center justify-center relative overflow-hidden">
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-amber-500 rounded-full mix-blur-5xl animate-pulse" style={{ animationDuration: "8s" }} />
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-orange-600 rounded-full mix-blur-5xl animate-pulse" style={{ animationDuration: "10s" }} />
       </div>
 
       <div className="relative z-10 w-full max-w-md px-4">
@@ -31,12 +31,12 @@ export default function Home() {
           <h1 className="text-5xl md:text-6xl font-black text-white mb-3 tracking-tight">
             Rent Payments
           </h1>
-          <p className="text-purple-300 text-lg font-medium">Secure monthly payment portal</p>
+          <p className="text-amber-400 text-lg font-medium">Secure monthly payment portal</p>
         </div>
 
-        <div className="glass-morphism rounded-3xl p-8 shadow-2xl transition-all duration-500 hover:shadow-purple-500/20">
+        <div className="glass-morphism rounded-3xl p-8 shadow-2xl transition-all duration-500 hover:shadow-amber-500/20">
           <div className="flex items-center justify-center mb-6">
-            <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-violet-500 rounded-2xl flex items-center justify-center mr-3 pulse-dot">
+            <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center mr-3 pulse-dot">
               <span className="text-2xl">🏠</span>
             </div>
             <h2 className="text-2xl font-bold text-white">Monthly Rent</h2>
@@ -45,7 +45,7 @@ export default function Home() {
           <div className="bg-white/5 rounded-2xl p-6 mb-6 border border-white/10">
             <div className="flex justify-between items-center">
               <span className="text-slate-300 font-medium text-lg">Amount Due</span>
-              <span className="text-4xl font-black bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent">
+              <span className="text-4xl font-black bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
                 $1,500.00
               </span>
             </div>
@@ -54,7 +54,7 @@ export default function Home() {
           <button
             onClick={handleCheckout}
             disabled={loading}
-            className="w-full relative overflow-hidden bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 hover:from-purple-500 hover:via-violet-500 hover:to-indigo-500 disabled:from-slate-700 disabled:to-slate-800 text-white font-bold py-5 rounded-2xl text-lg uppercase tracking-wider transition-all duration-300 transform hover:scale-[1.02] active:scale-95 shadow-xl hover:shadow-purple-500/30 group"
+            className="w-full relative overflow-hidden bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 hover:from-amber-500 hover:via-orange-500 hover:to-red-500 disabled:from-slate-700 disabled:to-slate-800 text-white font-bold py-5 rounded-2xl text-lg uppercase tracking-wider transition-all duration-300 transform hover:scale-[1.02] active:scale-95 shadow-xl hover:shadow-amber-500/30 group"
           >
             <span className="relative z-10 flex items-center justify-center">
               {loading ? "Processing..." : "Complete Payment"}

@@ -87,4 +87,4 @@ export async function GET() {
 | Initial | Template created with base setup |
 | 2026-06-07 | Added Stripe checkout integration: API route, payment page, success/cancel pages, .env.example |
 | 2026-06-07 | Removed "Due the 1st of every month" badge and "by Leon-LinkedIn" text from payment page |
-| 2026-06-07 | Redesigned page with premium glass-morphism UI, gradient backgrounds, and modern styling |
+| 2026-06-07 | Redesigned page with premium glass-morphism UI, gradient backgrounds, and modern styling. Changed to masculine amber/orange color scheme | |
