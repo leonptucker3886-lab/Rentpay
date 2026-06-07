@@ -47,7 +47,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-zinc-900 flex items-center justify-center relative overflow-hidden">
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-zinc-900 flex items-center justify-center px-4 py-8 relative overflow-hidden">
       {CASCADE_ITEMS.map((item) => (
         <div
           key={`${item.emoji}-${item.left}`}
@@ -64,36 +64,37 @@ export default function Home() {
       ))}
 
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-amber-500 rounded-full mix-blur-5xl animate-pulse" style={{ animationDuration: "8s" }} />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-orange-600 rounded-full mix-blur-5xl animate-pulse" style={{ animationDuration: "10s" }} />
+        <div className="absolute top-10 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-amber-500 rounded-full mix-blur-3xl sm:mix-blur-5xl animate-pulse" style={{ animationDuration: "8s" }} />
+        <div className="absolute bottom-10 right-10 w-56 h-56 sm:w-96 sm:h-96 bg-orange-600 rounded-full mix-blur-3xl sm:mix-blur-5xl animate-pulse" style={{ animationDuration: "10s" }} />
       </div>
 
-      <div className="relative z-10 w-full max-w-md px-4">
-        <div className="text-center mb-8">
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-3 tracking-tight">
+      <div className="relative z-10 w-full max-w-sm sm:max-w-md">
+        <div className="text-center mb-6 sm:mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-2 sm:mb-3 tracking-tight">
             Rent Payments
           </h1>
-          <p className="text-amber-400 text-lg font-medium">Secure monthly payment portal</p>
+          <p className="text-amber-400 text-base sm:text-lg font-medium">Secure monthly payment portal</p>
         </div>
 
-        <div className="glass-morphism rounded-3xl p-8 shadow-2xl transition-all duration-500 hover:shadow-amber-500/20">
-          <div className="flex items-center justify-center mb-6">
-            <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center mr-3 pulse-dot">
-              <span className="text-2xl">🏠</span>
+        <div className="glass-morphism rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl transition-all duration-500 hover:shadow-amber-500/20">
+          <div className="flex items-center justify-center mb-4 sm:mb-6">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl sm:rounded-2xl flex items-center justify-center mr-2 sm:mr-3 pulse-dot">
+              <span className="text-xl sm:text-2xl">🏠</span>
             </div>
-            <h2 className="text-2xl font-bold text-white">Monthly Rent</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-white">Monthly Rent</h2>
           </div>
 
-          <div className="mb-6">
-            <label className="text-slate-400 text-sm font-medium mb-2 block">Payment Amount (USD)</label>
+          <div className="mb-4 sm:mb-6">
+            <label className="text-slate-400 text-xs sm:text-sm font-medium mb-1 sm:mb-2 block">Payment Amount (USD)</label>
             <div className="relative">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-2xl text-slate-400">$</span>
+              <span className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-xl sm:text-2xl text-slate-400">$</span>
               <input
                 type="text"
+                inputMode="decimal"
                 value={amount}
                 onChange={handleAmountChange}
                 placeholder="0.00"
-                className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-10 pr-4 text-3xl font-bold text-white placeholder-slate-500 focus:outline-none focus:border-amber-500/50 transition-all"
+                className="w-full bg-white/5 border border-white/10 rounded-xl sm:rounded-2xl py-3 sm:py-4 pl-8 sm:pl-10 pr-3 sm:pr-4 text-2xl sm:text-3xl font-bold text-white placeholder-slate-500 focus:outline-none focus:border-amber-500/50 transition-all"
               />
             </div>
           </div>
@@ -101,7 +102,7 @@ export default function Home() {
           <button
             onClick={handleCheckout}
             disabled={loading || !amount || parseFloat(amount) <= 0}
-            className="w-full relative overflow-hidden bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 hover:from-amber-500 hover:via-orange-500 hover:to-red-500 disabled:from-slate-700 disabled:to-slate-800 text-white font-bold py-5 rounded-2xl text-lg uppercase tracking-wider transition-all duration-300 transform hover:scale-[1.02] active:scale-95 shadow-xl hover:shadow-amber-500/30 group"
+            className="w-full relative overflow-hidden bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 hover:from-amber-500 hover:via-orange-500 hover:to-red-500 disabled:from-slate-700 disabled:to-slate-800 text-white font-bold py-4 sm:py-5 rounded-xl sm:rounded-2xl text-base sm:text-lg uppercase tracking-wider transition-all duration-300 transform active:scale-95 shadow-xl hover:shadow-amber-500/30 group"
           >
             <span className="relative z-10 flex items-center justify-center">
               {loading ? "Processing..." : `Pay $${amount || "0.00"}`}
@@ -109,15 +110,15 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           </button>
 
-          <div className="flex items-center justify-center mt-6 text-slate-400">
-            <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+          <div className="flex items-center justify-center mt-4 sm:mt-6 text-slate-400">
+            <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" fill="currentColor" viewBox="0 0 24 24">
               <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-8 0V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H10z" />
             </svg>
-            <span className="text-sm font-medium">Secured by Stripe</span>
+            <span className="text-xs sm:text-sm font-medium">Secured by Stripe</span>
           </div>
         </div>
 
-        <div className="text-center mt-8 text-slate-500 text-xs">
+        <div className="text-center mt-6 sm:mt-8 text-slate-500 text-xs">
           Payments processed securely. Questions? Contact support
         </div>
       </div>
