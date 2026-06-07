@@ -90,4 +90,5 @@ export async function GET() {
 | 2026-06-07 | Redesigned page with premium glass-morphism UI, gradient backgrounds, and modern styling. Changed to masculine amber/orange color scheme |
 | 2026-06-07 | Added cascading money animation and editable payment amount input |
 | 2026-06-07 | Updated Next.js to ^16.2.6 for OpenNext compatibility |
-| 2026-06-07 | Mobile-first optimization with responsive design and smaller mobile animations
+| 2026-06-07 | Mobile-first optimization with responsive design and smaller mobile animations |
+| 2026-06-07 | Redesigned with clean professional styling - soft blue/white color scheme, removed scam-like elements
