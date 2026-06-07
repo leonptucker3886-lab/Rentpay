@@ -43,17 +43,20 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-slate-900 via-slate-800 to-gray-900">
-      <div className="absolute inset-0 pointer-events-none z-0 hidden sm:block">
+    <main style={{ minHeight: "100vh", backgroundColor: "#0f172a", display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem" }}>
+      <div style={{ position: "absolute", inset: 0, opacity: 0.3, zIndex: 0, display: "none" }} className="sm:block">
         {MONEY_ITEMS.map((item, i) => (
           <div
             key={i}
-            className="money-fall"
             style={{
+              position: "fixed",
+              top: "-10%",
               left: item.left,
               fontSize: item.size,
-              animationDuration: `${item.duration}s`,
+              animation: `fall ${item.duration}s linear infinite`,
               animationDelay: `${item.delay}s`,
+              pointerEvents: "none",
+              userSelect: "none",
             }}
           >
             {item.emoji}
@@ -61,23 +64,31 @@ export default function Home() {
         ))}
       </div>
 
-      <div className="w-full max-w-sm bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
-        <div className="text-center mb-6">
-          <h1 className="text-3xl sm:text-4xl font-black text-white mb-2">Rent Payments</h1>
-          <p className="text-amber-400 text-sm font-medium">Secure monthly payment portal</p>
+      <style jsx>{`
+        @keyframes fall {
+          0% { transform: translateY(-100vh) rotate(0deg); opacity: 0; }
+          10% { opacity: 1; }
+          100% { transform: translateY(100vh) rotate(360deg); opacity: 0.2; }
+        }
+      `}</style>
+
+      <div style={{ width: "100%", maxWidth: "24rem", backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "1.5rem", padding: "1.5rem", backdropFilter: "blur(20px)" }}>
+        <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+          <h1 style={{ fontSize: "1.75rem", fontWeight: "900", color: "white", marginBottom: "0.5rem" }}>Rent Payments</h1>
+          <p style={{ color: "#fbbf24", fontSize: "0.875rem" }}>Secure monthly payment portal</p>
         </div>
 
-        <div className="mb-6">
-          <label className="text-slate-400 text-xs font-medium mb-2 block">Payment Amount (USD)</label>
-          <div className="relative">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xl text-slate-400">$</span>
+        <div style={{ marginBottom: "1.5rem" }}>
+          <label style={{ color: "#94a3cb", fontSize: "0.75rem", fontWeight: "500", display: "block", marginBottom: "0.5rem" }}>Payment Amount (USD)</label>
+          <div style={{ position: "relative" }}>
+            <span style={{ position: "absolute", left: "0.75rem", top: "50%", transform: "translateY(-50%)", fontSize: "1.25rem", color: "#94a3cb" }}>$</span>
             <input
               type="text"
               inputMode="decimal"
               value={amount}
               onChange={handleAmountChange}
               placeholder="1500.00"
-              className="w-full bg-white/10 border border-white/20 rounded-xl py-3 pl-8 pr-10 text-2xl font-bold text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-all"
+              style={{ width: "100%", backgroundColor: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)", borderRadius: "0.75rem", padding: "0.75rem 0.75rem 0.75rem 2rem", fontSize: "1.5rem", fontWeight: "700", color: "white" }}
             />
           </div>
         </div>
@@ -85,16 +96,13 @@ export default function Home() {
         <button
           onClick={handleCheckout}
           disabled={loading || !amount || parseFloat(amount) <= 0}
-          className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 disabled:from-slate-700 text-white font-bold py-4 rounded-xl text-lg uppercase tracking-wider transition-all shadow-lg"
+          style={{ width: "100%", background: "linear-gradient(90deg, #d97706, #ea580c)", color: "white", fontWeight: "700", padding: "1rem", borderRadius: "0.75rem", fontSize: "1.125rem", textTransform: "uppercase", cursor: loading || !amount || parseFloat(amount) <= 0 ? "not-allowed" : "pointer", border: "none" }}
         >
           {loading ? "Processing..." : `Pay $${amount || "0.00"}`}
         </button>
 
-        <div className="flex items-center justify-center mt-6 text-slate-400 text-xs">
-          <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-8 0V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H10z" />
-          </svg>
-          Secured by Stripe
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "1.5rem", color: "#94a3cb", fontSize: "0.75rem" }}>
+          🔒 Secured by Stripe
         </div>
       </div>
     </main>
