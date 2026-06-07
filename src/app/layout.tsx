@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body style={{ backgroundColor: "#0f172a", minHeight: "100vh" }}>
         {children}
       </body>
     </html>
