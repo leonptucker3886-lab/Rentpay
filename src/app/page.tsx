@@ -78,7 +78,7 @@ export default function Home() {
                 value={amount}
                 onChange={handleAmountChange}
                 placeholder="1500.00"
-                className="w-full bg-white/10 border border-white/20 rounded-xl py-3 pl-8 pr-3 text-2xl font-bold text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-all"
+                className="w-full bg-white/10 border border-white/20 rounded-xl py-3 pl-8 pr-10 text-2xl font-bold text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-all"
               />
             </div>
           </div>
