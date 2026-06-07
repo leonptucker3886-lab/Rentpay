@@ -5,8 +5,11 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2026-05-27.dahlia",
 });
 
-export async function POST() {
+export async function POST(request: Request) {
   try {
+    const { amount } = await request.json();
+    const unitAmount = Math.round(parseFloat(amount || "1500") * 100);
+
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
@@ -18,7 +21,7 @@ export async function POST() {
               name: "Rent Payment",
               description: "Monthly rent payment",
             },
-            unit_amount: 150000,
+            unit_amount: unitAmount,
           },
           quantity: 1,
         },

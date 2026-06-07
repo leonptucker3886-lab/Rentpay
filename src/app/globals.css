@@ -16,3 +16,20 @@
 .pulse-dot {
   animation: pulse-dot 2s ease-in-out infinite;
 }
+
+@keyframe cascade {
+  0% { transform: translateY(-100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0.3; }
+}
+
+.cascade-item {
+  position: fixed;
+  top: -10%;
+  font-size: 24px;
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  animation: cascade linear infinite;
+}
