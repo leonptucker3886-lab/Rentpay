@@ -48,15 +48,12 @@ export default function Home() {
         {MONEY_ITEMS.map((item, i) => (
           <div
             key={i}
+            className="money-fall"
             style={{
-              position: "fixed",
-              top: "-10%",
               left: item.left,
               fontSize: item.size,
-              animation: `fall ${item.duration}s linear infinite`,
+              animationDuration: `${item.duration}s`,
               animationDelay: `${item.delay}s`,
-              pointerEvents: "none",
-              userSelect: "none",
             }}
           >
             {item.emoji}
