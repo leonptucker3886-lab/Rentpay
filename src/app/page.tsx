@@ -64,8 +64,8 @@ export default function Home() {
       ))}
 
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-10 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-amber-500 rounded-full mix-blur-3xl sm:mix-blur-5xl animate-pulse" style={{ animationDuration: "8s" }} />
-        <div className="absolute bottom-10 right-10 w-56 h-56 sm:w-96 sm:h-96 bg-orange-600 rounded-full mix-blur-3xl sm:mix-blur-5xl animate-pulse" style={{ animationDuration: "10s" }} />
+        <div className="absolute top-10 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-amber-500 rounded-full blur-2xl sm:blur-3xl animate-pulse" style={{ animationDuration: "8s" }} />
+        <div className="absolute bottom-10 right-10 w-56 h-56 sm:w-96 sm:h-96 bg-orange-600 rounded-full blur-2xl sm:blur-3xl animate-pulse" style={{ animationDuration: "10s" }} />
       </div>
 
       <div className="relative z-10 w-full max-w-sm sm:max-w-md">
